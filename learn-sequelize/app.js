@@ -1,10 +1,10 @@
 const express = require('express');
 const path = require('path');
 const morgan =require('morgan');
-const nunjucks = requre('nunjucks');
+const nunjucks = require('nunjucks');
 
-const{sequelize} = require('./models');
-const { nextTick } = require('process');
+const {sequelize} = require('./models');
+const {nextTick} = require('process');
 
 const app = express();
 
@@ -22,7 +22,7 @@ sequelize.sync({force: false})
         console.error(err);
     });
 
-app.use(mrogan('dev'));
+app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
